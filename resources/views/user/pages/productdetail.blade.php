@@ -23,7 +23,7 @@
             </li>
             @endforeach
           </ul>
-          <span>Mouse move on Image to zoom</span>
+          <span>Chuột di chuyển trên Ảnh để phóng to</span>
           
           <ul class="thumbnails mainimage">
             <li class="producthtumb">
@@ -51,10 +51,10 @@
               <div class="productprice">
                 <div class="productpageprice">
                 @if($product_detail->price_new == 0)
-                  <span class="spiral"></span>${!! $product_detail->price !!}</div>
+                  <span class="spiral"></span>{!! $product_detail->price !!} VNĐ</div>
                 @else
                   <span class="spiral"></span>${!! $product_detail->price_new !!}</div>
-                <div class="productpageoldprice">Old price : ${!! $product_detail->price !!}</div>
+                <div class="productpageoldprice">Giá cũ : {!! $product_detail->price !!} VNĐ</div>
                 @endif
                 <ul class="rate">
                   <li class="on"></li>
@@ -66,7 +66,7 @@
               </div>
               <div class="quantitybox">
                 <div class="col-sm-6">
-                  <legend>Size</legend>
+                  <legend>Kích cỡ</legend>
                     <select class="selectsize" name="size">
                       @foreach($size as $size)
                       <option value="{!! $size->size !!}">{!! $size->size !!}</option>
@@ -74,7 +74,7 @@
                     </select>
                 </div>
                 <div class="col-sm-6">
-                  <legend>Quantity</legend>
+                  <legend>Số lượng</legend>
                     <div class="col-lg-5">
                         <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" >
                     </div>
@@ -101,9 +101,9 @@
               </div>
               
               @if($product_detail->status == 0)
-                <button disabled type="submit" class="btn btn-orange" style="font-size: 20px"><span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart</button>
+                <button disabled type="submit" class="btn btn-orange" style="font-size: 20px"><span class="glyphicon glyphicon-shopping-cart"></span> Thêm</button>
               @else
-              <button type="submit" class="btn btn-orange" style="font-size: 20px"><span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart</button>
+              <button type="submit" class="btn btn-orange" style="font-size: 20px"><span class="glyphicon glyphicon-shopping-cart"></span> Thêm</button>
               @endif
               
             </form>
@@ -111,12 +111,12 @@
          <!-- Product Description tab & comments-->
          <div class="productdesc">
                 <ul class="nav nav-tabs" id="myTab">
-                  <li class="active"><a href="#detail">Product Detail</a>
-                  <li><a href="#description">Product Description</a>
+                  <li class="active"><a href="#detail">Chi tiết sản phẩm</a>
+                  <li><a href="#description">Mô tả Sản phẩm</a>
                   </li>
                   <!-- <li><a href="#specification">Specification</a>
                   </li> -->
-                  <li><a href="#producttag">Tags</a>
+                  <li><a href="#producttag">Thẻ</a>
                   </li>
                 </ul>
                 <div class="tab-content">
@@ -174,13 +174,13 @@
   <!--  Related Products-->
   <section id="related" class="row">
     <div class="container">
-      <h1 class="heading1"><span class="maintext">Related Products</span><span class="subtext"> See Our Most featured Products</span></h1>
+      <h1 class="heading1"><span class="maintext">Sản phẩm liên quan</span><span class="subtext"> Xem các sản phẩm nổi bật nhất của chúng tôi</span></h1>
       <ul class="thumbnails">
         @foreach($product_related as $item_related)
         <li class="col-lg-3 col-sm-3">
           <a class="prdocutname" href="{!! url('product-detail',[$item_related->id,$item_related->alias]) !!}">{!! $item_related->name !!}</a>
           <div class="thumbnail">
-            <span class="sale tooltip-test">Sale</span>
+            <span class="sale tooltip-test">Giảm giá</span>
             <a href="{!! url('product-detail',[$item_related->id,$item_related->alias]) !!}"><img alt="" src="{!! asset('resources/upload/'.$item_related->image) !!}"></a>
 <!--             <div class="shortlinks">
               <a class="details" href="#">DETAILS</a>
@@ -188,10 +188,10 @@
               <a class="compare" href="#">COMPARE</a>
             </div> -->
             <div class="pricetag">
-              <span class="spiral"></span><a href="#" class="productcart">ADD TO CART</a>
+              <span class="spiral"></span><a href="#" class="productcart">Thêm</a>
               <div class="price">
-                <div class="pricenew">${!! $item_related->price_new !!}</div>
-                <div class="priceold">${!! $item_related->price !!}</div>
+                <div class="pricenew">{!! $item_related->price_new !!} VNĐ</div>
+                <div class="priceold">{!! $item_related->price !!} VNĐ</div>
               </div>
             </div>
           </div>
@@ -202,7 +202,7 @@
   </section>
   <!-- Popular Brands-->
   <section id="popularbrands" class="container">
-    <h1 class="heading1"><span class="maintext">Popular Brands</span><span class="subtext"> See Our  Popular Brands</span></h1>
+    <h1 class="heading1"><span class="maintext">Thương hiệu nổi tiếng</span><span class="subtext"> Xem các nhãn hiệu phổ biến của chúng tôi</span></h1>
     <div class="brandcarousalrelative">
       <ul id="brandcarousal">
         <li><img src="{!! url('public/user/img/brand1.jpg') !!}" alt="" title=""/></li>

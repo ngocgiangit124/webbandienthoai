@@ -1,7 +1,7 @@
 <div id="categorymenu">
     <nav class="subnav">
         <ul class="nav-pills categorymenu">
-            <li><a class="active"  href="{{ url('/index')}}">Home</a></li>
+            <li><a class="active"  href="{{ url('/index')}}">Trang chủ</a></li>
             <?php
                 $menu_level_1 = DB::table('categories')->where('parent_id',0)->get();
             ?>
@@ -19,7 +19,7 @@
                 </div>
             </li>
             @endforeach
-            <li><a class=""  href="{{ url('contact')}}">Contact</a></li>
+            <li><a class=""  href="{{ url('contact')}}">Kết nối</a></li>
         </ul>
     </nav>
 </div>

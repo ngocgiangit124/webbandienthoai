@@ -13,14 +13,14 @@
 <!-- Featured Product-->
 <section id="featured" class="row mt40">
   <div class="container">
-    <h1 class="heading1"><span class="maintext">Featured Products</span><span class="subtext"> See Our Most featured Products</span></h1>
+    <h1 class="heading1"><span class="maintext">Sản phẩm nổi bật</span><span class="subtext"> Xem các sản phẩm nổi bật nhất của chúng tôi</span></h1>
     <ul class="thumbnails">
       @foreach($product as $item)
       <li class="col-lg-3  col-sm-6">
         <a class="prdocutname" href="{!! url('product-detail',[$item->id,$item->alias]) !!}">{!! $item->name !!}</a>
         <div class="thumbnail">
           @if($item->price_new != 0)
-          <span class="sale tooltip-test">Sale</span>
+          <span class="sale tooltip-test">Giảm giá</span>
           @endif
           <a href="{!! url('product-detail',[$item->id,$item->alias]) !!}"><img alt="" src="{!! asset('resources/upload/'.$item->image) !!}"></a>
 <!--           <div class="shortlinks">
@@ -30,9 +30,9 @@
           </div> -->
           <div class="pricetag">
             @if($item->status == 0)
-                <a href="{!! url('product-detail',[$item->id,$item->alias]) !!}" class="productcart">ADD TO CART</a>
+                <a href="{!! url('product-detail',[$item->id,$item->alias]) !!}" class="productcart">Thêm</a>
             @else
-              <a href="{!! url('add-to-cart',[$item->id,$item->alias]) !!}" class="productcart">ADD TO CART</a>
+              <a href="{!! url('add-to-cart',[$item->id,$item->alias]) !!}" class="productcart">Thêm</a>
             @endif
             <div class="price">
               @if($item->price_new == 0)
@@ -53,14 +53,14 @@
 <!-- Latest Product-->
 <section id="latest" class="row">
   <div class="container">
-    <h1 class="heading1"><span class="maintext">Latest Products</span><span class="subtext"> See Our Latest Products</span></h1>
+    <h1 class="heading1"><span class="maintext">Sản phẩm mới nhất</span><span class="subtext"> Xem sản phẩm mới nhất của chúng tôi</span></h1>
     <ul class="thumbnails">
       @foreach($product as $item)
       <li class="col-lg-3 col-sm-6">
         <a class="prdocutname" href="{!! url('product-detail',[$item->id,$item->alias]) !!}">{!! $item->name !!}</a>
         <div class="thumbnail">
           @if($item->price_new != 0)
-          <span class="sale tooltip-test">Sale</span>
+          <span class="sale tooltip-test">Giảm giá</span>
           @endif
           <a href="{!! url('product-detail',[$item->id,$item->alias]) !!}"><img alt="" src="{!! asset('resources/upload/'.$item->image) !!}"></a>
 <!--           <div class="shortlinks">
@@ -70,9 +70,9 @@
           </div> -->
           <div class="pricetag">
             @if($item->status == 0)
-             <a href="{!! url('product-detail',[$item->id,$item->alias]) !!}" class="productcart">ADD TO CART</a>
+             <a href="{!! url('product-detail',[$item->id,$item->alias]) !!}" class="productcart">Thêm</a>
             @else
-             <a href="{!! url('add-to-cart',[$item->id,$item->alias]) !!}" class="productcart">ADD TO CART</a>
+             <a href="{!! url('add-to-cart',[$item->id,$item->alias]) !!}" class="productcart">Thêm</a>
             @endif
             <div class="price">
               @if($item->price_new == 0)

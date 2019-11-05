@@ -8,24 +8,24 @@
   <!--  breadcrumb -->  
     <ul class="breadcrumb">
       <li>
-        <a href="#">Home</a>
+        <a href="#">Trang chủ</a>
         <span class="divider">/</span>
       </li>
-      <li class="active">Checkout</li>
+      <li class="active">Thanh toán</li>
     </ul>
     <div class="row">        
       <!-- Account Login-->
       <div class="col-lg-12">
         @if(!Auth::check())
-        <h1 class="heading1"><span class="maintext">Checkout</span><span class="subtext"> Checkout Process Steps</span></h1>
-        <div class="checkoutsteptitle">Customer<a class="modify">Modify</a>
+        <h1 class="heading1"><span class="maintext">Thanh toán</span><span class="subtext"> ác bước của quy trình thanh toán</span></h1>
+        <div class="checkoutsteptitle">Tùy chỉnh<a class="modify">Sửa đổi</a>
         </div>
         <div class="checkoutstep ">
 
           <section class="returncustomer">
-            <h2 class="heading2">Returning Customer </h2>
+            <h2 class="heading2">Phản hồi khách hàng </h2>
             <div class="loginbox">
-              <h4 class="heading4">You already have an account. Please login:</h4>
+                <h4 class="heading4">Bạn đã có tài khoản. Xin vui lòng đăng nhập:</h4>
               @if(Session::has('flash_message'))
                   <div class="alert alert-{!! Session::get('flash_level') !!}">
                       {!! Session::get('flash_message') !!}
@@ -36,36 +36,36 @@
                  <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                 <fieldset>
                   <div class="control-group">
-                    <label  class="control-label">Username:</label>
+                    <label  class="control-label">Tên tài khoản:</label>
                     <div class="controls">
                       <input type="text" name="txtUsername" placeholder="Username" class="" value="{!! old('txtUsername') !!}">
                     </div>
                   </div>
                   <div class="control-group">
-                    <label  class="control-label">Password:</label>
+                    <label  class="control-label">Mật khẩu:</label>
                     <div class="controls">
                       <input type="password" name="txtPass" placeholder="Password" class="">
                     </div>
                   </div>
                   <div class="form-group">
-                    <input type="checkbox" name="remember" value="true">Remember me   
+                    <input type="checkbox" name="remember" value="true">Nhớ
                     <br>
-                    <a class="" href="#">Forgot your Password?</a>
+                    <a class="" href="#">Quên mật khẩu</a>
                   </div>
                   
-                  <button type="submit" class="btn btn-orange">Login</button>
+                  <button type="submit" class="btn btn-orange">Đăng nhập</button>
                 </fieldset>
               </form>
             </div>
           </section>
           <section class="newcustomer">
-            <h2 class="heading2">New Customer </h2>
+            <h2 class="heading2">Khách hàng mới </h2>
             <div class="loginbox">
-              <h4 class="heading4"> Register Account</h4>
-              <p>Register at Shop Fashion ST to use the functions on the website and update information of our new products in the fastest way.</p>
+              <h4 class="heading4"> Đăng ký tài khoản</h4>
+              <p>Đăng ký tại Shop Fashion ST để sử dụng các chức năng trên trang web và cập nhật thông tin về các sản phẩm mới của chúng tôi một cách nhanh nhất.</p>
               <br>
               <br>
-              <a href="{!! url('register') !!}" class="btn btn-orange">Register Account</a>
+              <a href="{!! url('register') !!}" class="btn btn-orange">Đăng ký tài khoản</a>
             </div>
           </section>
 
@@ -74,14 +74,14 @@
         <form class="form-vertical" role="form" action="{!! url('checkout') !!}" method="POST">
         <input type="hidden" name="_token" value="{!! csrf_token() !!}">
         @if(!Auth::check())
-        <div class="checkoutsteptitle">Guest<a class="modify">Modify</a>
+        <div class="checkoutsteptitle">Khách mời<a class="modify">Sửa đổi</a>
         </div>
         <div class="checkoutstep">
           <div class="row">
               <fieldset>
                 <div class="col-lg-6">
                   <div class="control-group">
-                    <label class="control-label" >Full Name<span class="red">*</span></label>
+                    <label class="control-label" >Họ tên<span class="red">*</span></label>
                     <div class="controls">
                       <input type="text" name="txtFname" class=""  value="{!! old('txtFname') !!}">
                     </div>
@@ -95,14 +95,14 @@
                   </div>
                   <div class="col-lg-6">
                   <div class="control-group">
-                    <label class="control-label" >Telephone<span class="red">*</span></label>
+                    <label class="control-label" >Số điện thoại<span class="red">*</span></label>
                     <div class="controls">
                       <input type="text" name="txtPhone" class=""  value="{!! old('txtPhone') !!}">
                     </div>
                   </div>
     
                   <div class="control-group">
-                    <label class="control-label" >Address<span class="red">*</span></label>
+                    <label class="control-label" >Địa chỉ<span class="red">*</span></label>
                     <div class="controls">
                       <input type="text" name="txtAddress" class=""  value="{!! old('txtAddress') !!}">
                     </div>
@@ -114,14 +114,14 @@
 
         @endif
 
-        <div class="checkoutsteptitle">Payment  Method<a class="modify">Modify</a>
+        <div class="checkoutsteptitle">Phương thức thanh toán<a class="modify">Sửa đổi</a>
         </div>
         
           <div class="checkoutstep">
-            <p>Please select the preferred payment method to use on this order.</p>
+            <p>Vui lòng chọn phương thức thanh toán ưa thích để sử dụng cho đơn hàng này.</p>
             <label class="inline">
-              <input name="payment" type="radio" checked="checked" value="Cash On Delivery">Cash On Delivery</label>
-            <textarea name="note" rows="2" placeholder="Add Comment here..."></textarea>
+              <input name="payment" type="radio" checked="checked" value="Cash On Delivery">Thanh toán khi giao hàng</label>
+            <textarea name="note" rows="2" placeholder="Thêm bình luận ở đây..."></textarea>
             <br>
 
           </div>

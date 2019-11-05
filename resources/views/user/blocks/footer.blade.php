@@ -3,13 +3,13 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-3 aboutus col-sm-6">
-          <h2>About Us </h2>
-          <p>About ShopST<br>
+          <h2>Về chúng tôi </h2>
+          <p>Về cửa hàng<br>
             <br>
             Sitemap</p>
         </div>
         <div class="col-lg-3 contact col-sm-6">
-          <h2>Contact Us </h2>
+          <h2>Liên hệ vơi chúng tôi </h2>
           <ul>
             <li class="phone"> +84999999999</li>
             <li class="mobile"> +84999999999, +84999999999</li>

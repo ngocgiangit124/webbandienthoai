@@ -9,17 +9,17 @@
    <!--  breadcrumb -->  
     <ul class="breadcrumb">
       <li>
-        <a href="#">Home</a>
+        <a href="#">Trang chủ</a>
         <span class="divider">/</span>
       </li>
-      <li class="active">Category</li>
+      <li class="active">Danh sách</li>
     </ul>
     <div class="row">        
       <!-- Sidebar Start-->
       <aside class="col-lg-3">
        <!-- Category-->  
         <div class="sidewidt">
-          <h2 class="heading2"><span>Categories</span></h2>
+          <h2 class="heading2"><span>Danh sách</span></h2>
           @if(isset($product_cate[0]->cate_id))
           <ul class="nav nav-list categories">
             <li>
@@ -32,7 +32,7 @@
         </div>
        <!--  Best Seller -->  
         <div class="sidewidt">
-          <h2 class="heading2"><span>Best Seller</span></h2>
+          <h2 class="heading2"><span>Hàng bán chạy nhất</span></h2>
           <ul class="bestseller">
             @foreach($product_bestseller as $item_product_bsl)
             <?php
@@ -58,7 +58,7 @@
         </div>
         <!-- Latest Product -->  
         <div class="sidewidt">
-          <h2 class="heading2"><span>Latest Products</span></h2>
+          <h2 class="heading2"><span>Sản phẩm mới nhất</span></h2>
           <ul class="bestseller">
             @foreach($product_related as $item_product_related)
             <li>
@@ -88,11 +88,11 @@
                 <form class=" form-inline pull-left">
                   Sort By :
                   <select>
-                    <option>Default</option>
-                    <option>Name</option>
-                    <option>Pirce</option>
-                    <option>Rating </option>
-                    <option>Color</option>
+                    <option>Mặc định</option>
+                    <option>Tên</option>
+                    <option>Giá</option>
+                    <option>Đánh giá </option>
+                    <option>Màu</option>
                   </select>
                   &nbsp;&nbsp;
                   Show:
@@ -118,7 +118,7 @@
                     <a class="prdocutname" href="{!! url('product-detail',[$item_product_cate->id,$item_product_cate->alias]) !!}">{!! $item_product_cate->name !!}</a>
                     <div class="thumbnail">
                       @if($item_product_cate->price_new != 0)
-                      <span class="sale tooltip-test">Sale</span>
+                      <span class="sale tooltip-test">Giảm giá</span>
                       @endif
                       <a href="{!! url('product-detail',[$item_product_cate->id,$item_product_cate->alias]) !!}"><img alt="" src="{!! asset('resources/upload/'.$item_product_cate->image) !!}"></a>
 <!--                       <div class="shortlinks">
@@ -128,9 +128,9 @@
                       </div> -->
                       <div class="pricetag">
                         @if($item_product_cate->status == 0)
-                          <span class="spiral"></span><a href="{!! url('product-detail',[$item_product_cate->id,$item_product_cate->alias]) !!}" class="productcart">ADD TO CART</a>
+                          <span class="spiral"></span><a href="{!! url('product-detail',[$item_product_cate->id,$item_product_cate->alias]) !!}" class="productcart">Thêm</a>
                         @else
-                          <span class="spiral"></span><a href="{!! url('add-to-cart',[$item_product_cate->id,$item_product_cate->alias]) !!}" class="productcart">ADD TO CART</a>
+                          <span class="spiral"></span><a href="{!! url('add-to-cart',[$item_product_cate->id,$item_product_cate->alias]) !!}" class="productcart">Thêm</a>
                         @endif
                         <div class="price">
                           @if($item_product_cate->price_new == 0)
@@ -152,7 +152,7 @@
                       <div class="row">
                         <div class="col-lg-4 col-sm-4">
                           @if($item_product_cate->price_new != 0)
-                            <span class="sale tooltip-test"> Sale</span>
+                            <span class="sale tooltip-test"> Giảm giá</span>
                           @endif
                           <a href="{!! url('product-detail',[$item_product_cate->id,$item_product_cate->alias]) !!}"><img alt="" src="{!! asset('resources/upload/'.$item_product_cate->image) !!}"></a>
                         </div>
@@ -161,9 +161,9 @@
                           <div class="productdiscrption">{!! $item_product_cate->intro !!}</div>
                           <div class="pricetag">
                             @if($item_product_cate->status == 0)
-                              <span class="spiral"></span><a href="{!! url('product-detail',[$item_product_cate->id,$item_product_cate->alias]) !!}" class="productcart">ADD TO CART</a>
+                              <span class="spiral"></span><a href="{!! url('product-detail',[$item_product_cate->id,$item_product_cate->alias]) !!}" class="productcart">Thêm</a>
                             @else
-                              <span class="spiral"></span><a href="{!! url('add-to-cart',[$item_product_cate->id,$item_product_cate->alias]) !!}" class="productcart">ADD TO CART</a>
+                              <span class="spiral"></span><a href="{!! url('add-to-cart',[$item_product_cate->id,$item_product_cate->alias]) !!}" class="productcart">Thêm</a>
                             @endif
                             <div class="price">
                               @if($item_product_cate->price_new == 0)
@@ -188,7 +188,7 @@
                 <div>
                   <ul class="pagination pull-right">
                     @if($product_cate->currentPage() != 1)
-                    <li><a href="{!! str_replace('/?','?',$product_cate->url($product_cate->currentPage() - 1)) !!}">Prev</a></li>
+                    <li><a href="{!! str_replace('/?','?',$product_cate->url($product_cate->currentPage() - 1)) !!}">Trước</a></li>
                     @endif
                     @for($i = 1; $i <= $product_cate->lastPage(); $i = $i + 1)
                     <li class="{!! ($product_cate->currentPage() == $i) ? 'active' : '' !!}">
@@ -196,7 +196,7 @@
                     </li>
                     @endfor
                     @if($product_cate->currentPage() != $product_cate->lastPage())
-                    <li><a href="{!! str_replace('/?','?',$product_cate->url($product_cate->currentPage() + 1)) !!}">Next</a></li>
+                    <li><a href="{!! str_replace('/?','?',$product_cate->url($product_cate->currentPage() + 1)) !!}">Sau</a></li>
                     @endif
                   </ul>
                 </div>

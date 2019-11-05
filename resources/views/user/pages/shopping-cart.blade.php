@@ -7,24 +7,24 @@
      <!--  breadcrumb --> 
       <ul class="breadcrumb">
         <li>
-          <a href="#">Home</a>
+          <a href="#">Trang chủ</a>
           <span class="divider">/</span>
         </li>
-        <li class="active"> Shopping Cart</li>
+        <li class="active"> Giỏ hàng</li>
       </ul>       
-      <h1 class="heading1"><span class="maintext"> Shopping Cart</span><span class="subtext"> All items in your  Shopping Cart</span></h1>
+      <h1 class="heading1"><span class="maintext"> Giỏ hàng</span><span class="subtext"> Tất cả các mặt hàng trong giỏ hàng của bạn</span></h1>
       <!-- Cart-->
       @if(Cart::count() != 0)
       <div class="cart-info">
         <table class="table table-striped table-bordered">
           <tr>
-            <th class="image">Image</th>
-            <th class="name">Product Name</th>
-            <th class="name">Size</th>
-            <th class="quantity">Qty</th>
-            <th class="total">Action</th>
-            <th class="price">Unit Price</th>
-            <th class="total">Total</th>
+            <th class="image">Ảnh</th>
+            <th class="name">Tên sản phẩm</th>
+            <th class="name">Kích cỡ</th>
+            <th class="quantity">Số lượng</th>
+            <th class="total">Trạng thái</th>
+            <th class="price">Đơn giá</th>
+            <th class="total">Tổng</th>
            
           </tr>
 <!--           <form method="POST" acction="#">
@@ -51,16 +51,16 @@
           <div class="col-lg-4 pull-right">
             <table class="table table-striped table-bordered ">
               <tr>
-                <td><span class="extra bold">Sub-Total :</span></td>
-                <td><span class="bold">${!! Cart::subtotal(); !!}</span></td>
+                <td><span class="extra bold">Tổng phụ :</span></td>
+                <td><span class="bold">{!! Cart::subtotal() !!} VNĐ</span></td>
               </tr>
               <tr>
                 <td><span class="extra bold">VAT (5%) :</span></td>
-                <td><span class="bold">${!! Cart::tax(); !!}</span></td>
+                <td><span class="bold">{!! Cart::tax() !!} VNĐ</span></td>
               </tr>
               <tr>
-                <td><span class="extra bold totalamout">Total :</span></td>
-                <td><span class="bold totalamout">${!! Cart::total(); !!}</span></td>
+                <td><span class="extra bold totalamout">Tổng :</span></td>
+                <td><span class="bold totalamout">{!! Cart::total() !!} VNĐ</span></td>
               </tr>
             </table>
             <a href="{!! url('check-out') !!}"><input type="submit" value="CheckOut" class="btn btn-orange pull-right"></a>
@@ -69,7 +69,7 @@
         </div>
         </div>
         @else
-          <h2>There are no items in your cart...</h2>
+          <h2>Hiện tại không có sản phẩm nào trong giỏ hàng của bạn...</h2>
           <a href="{!! url('index') !!}"><input type="submit" value="Continue Shopping" class="btn btn-orange pull-right mr10"></a>
         @endif
     </div>

@@ -9,10 +9,10 @@
    <!--  breadcrumb -->  
     <ul class="breadcrumb">
       <li>
-        <a href="#">Home</a>
+        <a href="#">Trang chủ</a>
         <span class="divider">/</span>
       </li>
-      <li class="active">Category</li>
+      <li class="active">Danh sách</li>
     </ul>
     <div class="row">        
       <!-- Sidebar Start-->
@@ -20,7 +20,7 @@
 
        <!--  Best Seller -->  
         <div class="sidewidt">
-          <h2 class="heading2"><span>Best Seller</span></h2>
+          <h2 class="heading2"><span>Hàng bán chạy nhất</span></h2>
           <ul class="bestseller">
             @foreach($product_bestseller as $item_product_bsl)
             <?php
@@ -35,9 +35,9 @@
               <span class="procategory"> {!! $bsl->cate_name !!}</span>
               <span class="price">
                 @if($bsl->price_new == 0)
-                  ${!! $bsl->price !!}
+                  {!! $bsl->price !!} VNĐ
                 @else
-                  ${!! $bsl->price_new !!}
+                  {!! $bsl->price_new !!} VNĐ
                 @endif
               </span>
             </li>
@@ -46,7 +46,7 @@
         </div>
         <!-- Latest Product -->  
         <div class="sidewidt">
-          <h2 class="heading2"><span>Latest Products</span></h2>
+          <h2 class="heading2"><span>Sản phẩm mới nhất</span></h2>
           <ul class="bestseller">
             @foreach($product_related as $item_product_related)
             <li>
@@ -72,16 +72,16 @@
         <!-- Category Products-->
         <section id="category">
              <!-- Sorting-->
-             <h3 style="color: red;">Resuilt of: {!! $key_search !!}</h3>
+             <h3 style="color: red;">Định dạng lại: {!! $key_search !!}</h3>
               <div class="sorting well">
                 <form class=" form-inline pull-left">
                   Sort By :
                   <select>
-                    <option>Default</option>
-                    <option>Name</option>
-                    <option>Pirce</option>
-                    <option>Rating </option>
-                    <option>Color</option>
+                    <option>Mặc định</option>
+                    <option>Tên</option>
+                    <option>Giá</option>
+                    <option>Đánh giá </option>
+                    <option>Màu</option>
                   </select>
                   &nbsp;&nbsp;
                   Show:
@@ -107,7 +107,7 @@
                     <a class="prdocutname" href="{!! url('product-detail',[$product_search['id'],$product_search['alias']]) !!}">{!! $product_search->name !!}</a>
                     <div class="thumbnail">
                       @if($product_search['price_new'] != 0)
-                      <span class="sale tooltip-test">Sale</span>
+                      <span class="sale tooltip-test">Giảm giá</span>
                       @endif
                       <a href="{!! url('product-detail',[$product_search['id'],$product_search['alias']]) !!}"><img alt="" src="{!! asset('resources/upload/'.$product_search->image) !!}"></a>
 <!--                       <div class="shortlinks">
@@ -119,7 +119,7 @@
                         @if($product_search->status == 0)
                           <span class="spiral"></span><a href="{!! url('product-detail',[$product_search->id,$product_search->alias]) !!}" class="productcart">ADD TO CART</a>
                         @else
-                          <span class="spiral"></span><a href="{!! url('add-to-cart',[$product_search->id,$product_search->alias]) !!}" class="productcart">ADD TO CART</a>
+                          <span class="spiral"></span><a href="{!! url('add-to-cart',[$product_search->id,$product_search->alias]) !!}" class="productcart">Thêm</a>
                         @endif
                         <div class="price">
                           @if($product_search['price_new'] == 0)
@@ -141,7 +141,7 @@
                       <div class="row">
                         <div class="col-lg-4 col-sm-4">
                           @if($product_search['price_new'] != 0)
-                            <span class="sale tooltip-test"> Sale</span>
+                            <span class="sale tooltip-test"> Giảm giá</span>
                           @endif
                           <a href="{!! url('product-detail',[$product_search['id'],$product_search['alias']]) !!}"><img alt="" src="{!! asset('resources/upload/'.$product_search['image']) !!}"></a>
                         </div>
@@ -149,7 +149,7 @@
                           <a class="prdocutname" href="product.html">{!! $product_search['name'] !!}</a>
                           <div class="productdiscrption">{!! $product_search['intro'] !!}</div>
                           <div class="pricetag">
-                            <span class="spiral"></span><a href="{!! url('add-to-cart',[$product_search['id'],$product_search['alias']]) !!}" class="productcart">ADD TO CART</a>
+                            <span class="spiral"></span><a href="{!! url('add-to-cart',[$product_search['id'],$product_search['alias']]) !!}" class="productcart">Thêm</a>
                             <div class="price">
                               @if($product_search['price_new'] == 0)
                                 <div class="pricenew">${!! $product_search['price'] !!}</div>
