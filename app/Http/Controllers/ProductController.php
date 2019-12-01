@@ -39,6 +39,17 @@ class ProductController extends Controller
     	$product->description = $product_request->txtDescription;
     	$product->user_id = Auth::user()->id;
     	$product->cate_id = $product_request->sltParent;
+        $product->screen = $product_request->txtScreen;
+        $product->camera1 = $product_request->txtCamera1;
+        $product->camera2 = $product_request->txtCamera2;
+        $product->ram = $product_request->txtRam;
+        $product->rom = $product_request->txtRom;
+        $product->cpu = $product_request->txtCpu;
+        $product->gpu = $product_request->txtGpu;
+        $product->battery_capacity = $product_request->battery_capacity;
+        $product->operating_system = $product_request->operating_system;
+        $product->sim = $product_request->txtSim;
+        $product->origin = $product_request->txtOrigin;
     	$product_request->file('fImages')->move('resources/upload/',$file_name);
     	$product->save();
     	$product_id = $product->id;
@@ -86,8 +97,23 @@ class ProductController extends Controller
     public function getEdit($id){
     	$cate = Category::select('name','id','parent_id')->get()->toArray();
     	$product = Product::find($id);
-    	$product_image = Product::find($id)->product_image;
-        $product_size = Product::find($id)->product_size;
+        $product =$product->getArrayInfo1();
+        if(!$product) {
+            return view('errors.404');
+        }
+    	$product_image = Product::find($id);
+    	if($product_image) {
+            $product_image=$product_image->product_image;
+        } else {
+            $product_image = '';
+        }
+        $product_size = Product::find($id);
+        if(count((array)$product_size)>0) {
+            $product_size=$product_size->product_size;
+        } else {
+            $product_size = [];
+        }
+//        dd(compact('cate','product','product_image','product_size'));
     	return view('admin.product.edit',compact('cate','product','product_image','product_size'));
     }
 
@@ -104,6 +130,17 @@ class ProductController extends Controller
         $product->description = Request::input('txtDescription');
         $product->user_id = Auth::user()->id;
         $product->cate_id = Request::input('sltParent');
+        $product->screen = Request::input('txtScreen');
+        $product->camera1 = Request::input('txtCamera1');
+        $product->camera2 = Request::input('txtCamera2');
+        $product->ram = Request::input('txtRam');
+        $product->rom = Request::input('txtRom');
+        $product->cpu = Request::input('txtCpu');
+        $product->gpu = Request::input('txtGpu');
+        $product->battery_capacity = Request::input('battery_capacity');
+        $product->operating_system = Request::input('operating_system');
+        $product->sim = Request::input('txtSim');
+        $product->sim = Request::input('txtOrigin');
         $img_current = 'resources/upload/'.Request::input('img_current');
         if (!empty(Request::file('fImages'))) {
             $file_name = Request::file('fImages')->getClientOriginalName();
@@ -157,9 +194,8 @@ class ProductController extends Controller
     }
 
     public function getDelImg($id) {
-        if(Request::ajax()){
             $idImg = (int)Request::get('idImg');
-            $image_detail = Product_image::find($idImg);
+            $image_detail = Product_image::find($id);
             if (!empty($image_detail)) {
                 $img = 'resources/upload/detail/'.$image_detail->image;
                 if (File::exists($img)) {
@@ -167,8 +203,7 @@ class ProductController extends Controller
                 }
                 $image_detail->delete();
             }
-            return "Ok!";
-        }
-
+            $res['status'] = 200;
+            return $res;
     }
 }

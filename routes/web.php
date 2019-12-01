@@ -18,7 +18,16 @@ Route::get('/', function () {
 Route::get('/index', ['as'=>'home-page','uses'=>'PageController@getIndex']);
 
 Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function() {
-	Route::group(['prefix'=>'cate'],function() {
+    Route::get('/','BillController@getList');
+    Route::group(['prefix'=>'banner'],function() {
+        Route::get('/list','BannerController@getList');
+        Route::get('/add','BannerController@getAdd');
+        Route::post('/add','BannerController@postAdd');
+        Route::get('/delete/{id}','BannerController@getDelete');
+        Route::get('/edit/{id}','BannerController@getEdit');
+        Route::post('/edit/{id}','BannerController@postEdit');
+    });
+    Route::group(['prefix'=>'cate'],function() {
 		Route::get('list',['as'=>'admin.cate.list','uses'=>'CateController@getList']);
 		Route::get('add',['as'=>'admin.cate.getAdd','uses'=>'CateController@getAdd']);
 		Route::post('add',['as'=>'admin.cate.postAdd','uses'=>'CateController@postAdd']);
@@ -33,7 +42,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function() {
 		Route::get('delete/{id}',['as'=>'admin.product.getDelete','uses'=>'ProductController@getDelete']);
 		Route::get('edit/{id}',['as'=>'admin.product.getEdit','uses'=>'ProductController@getEdit']);
 		Route::post('edit/{id}',['as'=>'admin.product.postEdit','uses'=>'ProductController@postEdit']);
-		Route::get('delimg/{id}',['as'=>'admin.product.getDelImg','uses'=>'ProductController@getDelImg']);
+		Route::get('/delimg/{id}','ProductController@getDelImg');
 		Route::get('delsize/{id}',['as'=>'admin.product.getDelSize','uses'=>'ProductController@getDelSize']);
 	});
 	Route::group(['prefix'=>'user'],function() {

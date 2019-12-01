@@ -146,6 +146,18 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
+                            <a href="#"><i class="fa fa-users fa-fw"></i> Banner<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/admin/banner/list">List Banner</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/banner/add">Add Banner</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
                             <a href="{!! url('admin/contact/list') !!}"><i class="fa fa-envelope"></i> Mailbox 
                                 <button style="width:70px;display:inline-block;overflow: auto;white-space: nowrap;margin:0px auto;border:1px red solid; margin-left: 70px;" type="button" class="btn btn-warning">
                                     <span class="fa fa-envelope"></span> {!! count($count_mail) !!}

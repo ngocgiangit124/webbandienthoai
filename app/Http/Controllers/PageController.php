@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Banner;
 use App\Http\Requests\QtyRequest;
 use App\Http\Requests\ContactRequest;
 use App\Http\Requests\CheckOutRequest;
@@ -20,7 +21,12 @@ class PageController extends Controller
 {
     public function getIndex(){
     	$product = DB::table('products')->select('id','name','image','price','price_new','alias','status')->orderBy('id','DESC')->skip(0)->take(4)->get();
-    	return view('user.pages.home',compact('product'));
+        $banners1 = Banner::where('status',1)->get();
+        $banners = [];
+        foreach ($banners1 as $banner1) {
+            $banners[] = $banner1->getArrayInfo();
+        }
+        return view('user.pages.home',compact('product','banners'));
     }
     public function productcateparent($id){
     	$product_cate = DB::table('products')->join('categories', 'categories.id', '=', 'products.cate_id')
@@ -40,6 +46,9 @@ class PageController extends Controller
                                 ->groupBy('product_id')
                                 ->take(3)
                                 ->get();
+        $banners = Banner::where('status',1)->get();
+        $banners = $banners->getArrayInfo();
+//        $this->data['banners'] = $banners;
         return view('user.pages.cate',compact('product_cate','product_related','menu_cate','product_bestseller'));
     }
     public function productcate($id){

@@ -3,7 +3,7 @@
 {{--@section('description','Shop Fashion ST')--}}
 
   <!-- Slider Start-->
-  @include('user.blocks.slider')
+  @include('user.blocks.slider',['banners'=>$banners])
   <!-- Slider End-->
   
   <!-- Section Start-->
@@ -20,7 +20,7 @@
         <a class="prdocutname" href="{!! url('product-detail',[$item->id,$item->alias]) !!}">{!! $item->name !!}</a>
         <div class="thumbnail">
           @if($item->price_new != 0)
-          <span class="sale tooltip-test">Giảm giá</span>
+          <span class="sale tooltip-test"></span>
           @endif
           <a href="{!! url('product-detail',[$item->id,$item->alias]) !!}"><img alt="" src="{!! asset('resources/upload/'.$item->image) !!}"></a>
 <!--           <div class="shortlinks">
@@ -35,11 +35,12 @@
               <a href="{!! url('add-to-cart',[$item->id,$item->alias]) !!}" class="productcart">Thêm</a>
             @endif
             <div class="price">
+                <span class="spiral"></span>
               @if($item->price_new == 0)
-                <div class="pricenew">{!! $item->price !!} VNĐ</div>
+                <div class="pricenew">{!! number_format($item->price) !!} VNĐ</div>
               @else
-                <div class="pricenew">{!! $item->price_new !!} VNĐ</div>
-                <div class="priceold">{!! $item->price !!} VNĐ</div>
+                <div class="pricenew">{!! number_format($item->price_new) !!} VNĐ</div>
+                <div class="priceold">{!! number_format($item->price) !!} VNĐ</div>
               @endif
             </div>
           </div>
@@ -60,7 +61,7 @@
         <a class="prdocutname" href="{!! url('product-detail',[$item->id,$item->alias]) !!}">{!! $item->name !!}</a>
         <div class="thumbnail">
           @if($item->price_new != 0)
-          <span class="sale tooltip-test">Giảm giá</span>
+          <span class="sale tooltip-test"></span>
           @endif
           <a href="{!! url('product-detail',[$item->id,$item->alias]) !!}"><img alt="" src="{!! asset('resources/upload/'.$item->image) !!}"></a>
 <!--           <div class="shortlinks">
@@ -75,11 +76,12 @@
              <a href="{!! url('add-to-cart',[$item->id,$item->alias]) !!}" class="productcart">Thêm</a>
             @endif
             <div class="price">
+                <span class="spiral"></span>
               @if($item->price_new == 0)
-                <div class="pricenew">{!! $item->price !!} VNĐ</div>
+                <div class="pricenew">{!! number_format($item->price) !!} VNĐ</div>
               @else
-                <div class="pricenew">{!! $item->price_new !!} VNĐ</div>
-                <div class="priceold">{!! $item->price !!} VNĐ</div>
+                <div class="pricenew">{!! number_format($item->price_new) !!} VNĐ</div>
+                <div class="priceold">{!! number_format($item->price) !!} VNĐ</div>
               @endif
             </div>
           </div>
