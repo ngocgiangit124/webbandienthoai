@@ -152,10 +152,10 @@
                             <span class="spiral"></span><a href="{!! url('add-to-cart',[$product_search['id'],$product_search['alias']]) !!}" class="productcart">Thêm</a>
                             <div class="price">
                               @if($product_search['price_new'] == 0)
-                                <div class="pricenew">${!! $product_search['price'] !!}</div>
+                                <div class="pricenew">{!! number_format($product_search['price']) !!} VNĐ</div>
                               @else
-                                <div class="pricenew">${!! $product_search['price_new'] !!}</div>
-                                <div class="priceold">${!! $product_search['price'] !!}</div>
+                                <div class="pricenew">{!! number_format($product_search['price_new']) !!} VNĐ</div>
+                                <div class="priceold">{!! number_format($product_search['price']) !!} VNĐ</div>
                               @endif
                             </div>
                           </div>

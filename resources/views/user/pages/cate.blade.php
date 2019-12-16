@@ -47,9 +47,9 @@
               <span class="procategory"> {!! $bsl->cate_name !!}</span>
               <span class="price">
                 @if($bsl->price_new == 0)
-                  ${!! $bsl->price !!}
+                  {!! number_format($bsl->price) !!} VNĐ
                 @else
-                  ${!! $bsl->price_new !!}
+                  {!! number_format($bsl->price_new) !!} VNĐ
                 @endif
               </span>
             </li>
@@ -67,9 +67,9 @@
               <span class="procategory">{!! $item_product_related->cate_name !!}</span>
               <span class="price">
                 @if($item_product_related->price_new == 0)
-                  ${!! $item_product_related->price !!}
+                  {!! number_format($item_product_related->price) !!} VNĐ
                 @else
-                  ${!! $item_product_related->price_new !!}
+                  {!! number_format($item_product_related->price_new) !!} VNĐ
                 @endif
               </span>
             </li>

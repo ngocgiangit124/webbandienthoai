@@ -173,7 +173,7 @@
                 <div class="col-sm-6">
                   <legend style="font-size: 16px">Số lượng</legend>
                     <div class="col-lg-12">
-                        <input type="number" min="0" id="quantity" name="quantity" class="form-control input-number" value="1" >
+                        <input type="number" min="0" max="{{$product_detail->quantity}}" id="quantity" name="quantity" class="form-control input-number" value="1" >
                     </div>
                 </div>
                 @include('admin.blocks.error')

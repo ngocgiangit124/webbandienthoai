@@ -54,15 +54,15 @@
             </div>
             <div class="form-group">
                 <label>Email</label>
-                <input type="email" class="form-control" name="txtEmail" placeholder="Please Enter Email" value="{!! old('txtEmail',isset($user_edit) ? $user_edit['email'] : null) !!}"/>
+                <input type="email" class="form-control" name="txtEmail" placeholder="Email" value="{!! old('txtEmail',isset($user_edit) ? $user_edit['email'] : null) !!}"/>
             </div>
             <div class="form-group">
                 <label>Địa chỉ</label>
-                <input type="text" class="form-control" name="txtAddress" placeholder="Please Enter Address" value="{!! old('txtAddress',isset($user_edit) ? $user_edit['address'] : null) !!}"/>
+                <input type="text" class="form-control" name="txtAddress" placeholder="Địa chỉ" value="{!! old('txtAddress',isset($user_edit) ? $user_edit['address'] : null) !!}"/>
             </div>
             <div class="form-group">
                 <label>Số điện thoại</label>
-                <input type="text" class="form-control" name="txtPhone" placeholder="Please Enter Phone Number" value="{!! old('txtPhone',isset($user_edit) ? $user_edit['phone'] : null) !!}"/>
+                <input type="text" class="form-control" name="txtPhone" placeholder="Số điện thoại" value="{!! old('txtPhone',isset($user_edit) ? $user_edit['phone'] : null) !!}"/>
             </div>
             <button type="submit" class="btn btn-primary">Chỉnh sửa</button>
       </form>

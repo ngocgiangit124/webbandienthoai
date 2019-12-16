@@ -31,52 +31,56 @@
             <input class="form-control" name="txtPrice" type="number" placeholder="Please Enter Product Price" value="{!! old('txtPrice') !!}" />
         </div>
         <div class="form-group">
+            <label>Quantity - (Số lượng)*</label>
+            <input class="form-control" name="txtQuantity" type="number" placeholder="" value="{!! old('txtQuantity') !!}" />
+        </div>
+        <div class="form-group">
             <label>Intro - (Mô tả ngắn)*</label>
             <textarea class="form-control" rows="3" name="txtIntro">{!! old('txtIntro') !!}</textarea>
             <script type="text/javascript">CKEDITOR.replace("txtIntro")</script>
         </div>
         <div class="form-group">
             <label>Screen -( Màn hình)</label>
-            <input class="form-control" name="txtScreen" placeholder="Please Enter Product Name" value="{!! old('txtName') !!}" />
+            <input class="form-control" name="txtScreen" placeholder="" value="{!! old('txtName') !!}" />
         </div>
         <div class="form-group">
             <label>Camera Trước</label>
-            <input class="form-control" name="txtCamera1" placeholder="Please Enter Product Name" value="{!! old('txtName') !!}" />
+            <input class="form-control" name="txtCamera1" placeholder="" value="{!! old('txtName') !!}" />
         </div>
         <div class="form-group">
             <label>Camera Sau</label>
-            <input class="form-control" name="txtCamera2" placeholder="Please Enter Product Name" value="{!! old('txtName') !!}" />
+            <input class="form-control" name="txtCamera2" placeholder="" value="{!! old('txtName') !!}" />
         </div>
         <div class="form-group">
             <label>Ram</label>
-            <input class="form-control" name="txtRam" placeholder="Please Enter Product Name" value="{!! old('txtName') !!}" />
+            <input class="form-control" name="txtRam" placeholder="" value="{!! old('txtName') !!}" />
         </div><div class="form-group">
             <label>Rom</label>
-            <input class="form-control" name="txtRom" placeholder="Please Enter Product Name" value="{!! old('txtName') !!}" />
+            <input class="form-control" name="txtRom" placeholder="" value="{!! old('txtName') !!}" />
         </div>
         <div class="form-group">
             <label>CPU</label>
-            <input class="form-control" name="txtCpu" placeholder="Please Enter Product Name" value="{!! old('txtName') !!}" />
+            <input class="form-control" name="txtCpu" placeholder="" value="{!! old('txtName') !!}" />
         </div>
         <div class="form-group">
             <label>GPU</label>
-            <input class="form-control" name="txtGpu" placeholder="Please Enter Product Name" value="{!! old('txtName') !!}" />
+            <input class="form-control" name="txtGpu" placeholder="" value="{!! old('txtName') !!}" />
         </div>
         <div class="form-group">
             <label>Battery capacity - (Dung lượng pin</label>
-            <input class="form-control" name="battery_capacity" placeholder="Please Enter Product Name" value="{!! old('txtName') !!}" />
+            <input class="form-control" name="battery_capacity" placeholder="" value="{!! old('txtName') !!}" />
         </div>
         <div class="form-group">
             <label>Operating system - (Hệ điều hành)</label>
-            <input class="form-control" name="operating_system" placeholder="Please Enter Product Name" value="{!! old('txtName') !!}" />
+            <input class="form-control" name="operating_system" placeholder="" value="{!! old('txtName') !!}" />
         </div>
         <div class="form-group">
             <label>Sim</label>
-            <input class="form-control" name="txtSim" placeholder="Please Enter Product Name" value="{!! old('txtName') !!}" />
+            <input class="form-control" name="txtSim" placeholder="" value="{!! old('txtName') !!}" />
         </div>
         <div class="form-group">
             <label>Origin - (Xuất xứ)</label>
-            <input class="form-control" name="txtOrigin" placeholder="Please Enter Product Name" value="{!! old('txtName') !!}" />
+            <input class="form-control" name="txtOrigin" placeholder="" value="{!! old('txtName') !!}" />
         </div>
 
         <div class="form-group" style="display: none;">

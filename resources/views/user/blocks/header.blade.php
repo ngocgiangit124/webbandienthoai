@@ -1,7 +1,7 @@
 <div class="headerstrip">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12"> <a href="{{ url('/index')}}" class="logo pull-left"><img src="{!! url('public/user/img/logo.png') !!}" alt="SimpleOne" title="SimpleOne"></a> 
+            <div class="col-lg-12"> <a href="{{ url('/index')}}" class="logo pull-left"><img style="height: 100%" src="{!! url('public/user/img/logo.png') !!}" alt="SimpleOne" title="SimpleOne"></a>
                 <!-- Top Nav Start -->
                 <div class="pull-left">
                     <div class="navbar" id="topnav">

@@ -16,7 +16,7 @@
       <!-- Account Login-->
       <div class="col-lg-12">
 
-        <h1 class="heading1"><span class="maintext">Kết nối</span><span class="subtext"> Contact Us for more</span></h1>
+        <h1 class="heading1"><span class="maintext">Kết nối</span><span class="subtext"> Liên lạc với chúng tôi để biết thêm</span></h1>
 
         <form class="form-vertical" role="form" action="{!! url('contact') !!}" method="POST">
         <input type="hidden" name="_token" value="{!! csrf_token() !!}">
@@ -58,8 +58,8 @@
         </div>
 
           <div class="col-lg-4 pull-right">
-            <input type="submit" class="btn btn-orange pull-right" value="Submit">
-            <a href="{!! url('index') !!}"><input type="" value="Continue Shopping" class="btn btn-orange pull-right mr10"></a>
+            <input type="submit" class="btn btn-orange pull-right" value="Gửi">
+            <a href="{!! url('index') !!}"><input type="" value="Tiếp tục mua hàng" class="btn btn-orange pull-right mr10"></a>
           </div>  
         </form>
       </div>        

@@ -27,6 +27,13 @@ class CateController extends Controller
     	$cate->parent_id = $request->sltParent;
     	$cate->keywords = $request->txtKeywords;
     	$cate->description = $request->txtDescription;
+        if (!empty($request->file('icon'))) {
+            $file_name = $request->file('icon')->getClientOriginalName();
+            $cate->icon = $file_name;
+            $request->file('icon')->move('resources/upload/',$file_name);
+        }else{
+            echo "ko co file";
+        }
     	$cate->save();
     	return redirect()->route('admin.cate.list')->with(['flash_level'=>'success','flash_message'=>'Add Category Complete Success!']);
     }
@@ -66,6 +73,17 @@ class CateController extends Controller
     	$cate->parent_id = $request->sltParent;
     	$cate->keywords = $request->txtKeywords;
     	$cate->description = $request->txtDescription;
+        $img_current = 'resources/upload/'.$cate->icon;
+        if (!empty($request->file('icon'))) {
+            $file_name = $request->file('icon')->getClientOriginalName();
+            $cate->icon = $file_name;
+            $request->file('icon')->move('resources/upload/',$file_name);
+            if (File::exists($img_current)) {
+                File::delete($img_current);
+            }
+        }else{
+            echo "ko co file";
+        }
     	$cate->save();
     	return redirect()->route('admin.cate.list')->with(['flash_level'=>'success','flash_message'=>'Edit Category Complete Success!']);
     }

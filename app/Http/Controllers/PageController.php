@@ -37,6 +37,8 @@ class PageController extends Controller
         if(isset($product_cate[0]->cate_id)){
             $cate = DB::table('categories')->select('parent_id')->where('id',$product_cate[0]->cate_id)->first();
             $menu_cate = DB::table('categories')->select('id','name','alias')->where('parent_id',$cate->parent_id)->get();
+        } else {
+            $menu_cate = collect([]);
         }
     	$product_related = DB::table('products')->join('categories', 'categories.id', '=', 'products.cate_id')
                             ->select('products.*', 'categories.id as cate_id', 'categories.name as cate_name')
@@ -46,8 +48,8 @@ class PageController extends Controller
                                 ->groupBy('product_id')
                                 ->take(3)
                                 ->get();
-        $banners = Banner::where('status',1)->get();
-        $banners = $banners->getArrayInfo();
+//        $banners = Banner::where('status',1)->get();
+//        $banners = $banners->getArrayInfo();
 //        $this->data['banners'] = $banners;
         return view('user.pages.cate',compact('product_cate','product_related','menu_cate','product_bestseller'));
     }
@@ -225,10 +227,11 @@ class PageController extends Controller
                         $billDetail->unit_price = $item->price;
                         $billDetail->size = $item->options['size'];
                         $billDetail->save();
+                        $this->quantityChange($item->id,$item->qty);
                     }
                 }
                 Cart::destroy();
-                Alert::success('Thank You for Your Order!');
+                Alert::success('Cảm ơn bạn đã đặt hàng của bạn!');
                 return redirect('index');
 
             }else{
@@ -269,6 +272,7 @@ class PageController extends Controller
                         $billDetail->unit_price = $item->price;
                         $billDetail->size = $item->options['size'];
                         $billDetail->save();
+                        $this->quantityChange($item->id,$item->qty);
                     }
                 }
                 Cart::destroy();
@@ -281,5 +285,10 @@ class PageController extends Controller
             return redirect()->route('cartinfo');
         }
         
+    }
+    function quantityChange($id,$quantity) {
+        $product = Product::find($id);
+        $product->quantity = $product->quantity - $quantity;
+        $product->save();
     }
 }

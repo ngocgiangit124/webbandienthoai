@@ -8,9 +8,9 @@ h1, h2, h3, h4, h5 { font-weight:normal }
 ul, ul li { list-style:none }
 ul { padding:0px }
 .heading1 { margin-bottom:40px; border-bottom:1px solid #efefef; margin-top:0px; font-size:34px }
-.heading2 { font-size:24px; color:#F54F4D; text-transform:none; font-weight:normal; padding:0px; text-transform:uppercase; font-family: 'Crete Round', serif; }
+.heading2 { font-size:24px; color:#F54F4D; text-transform:none; font-weight:normal; padding:0px; text-transform:uppercase; font-family: 'Roboto', sans-serif; }
 .heading1 .subtext { font-size:16px; color:#96979d; text-transform:none; font-weight:normal; padding:0px; }
-.heading1 .maintext { font-size:28px; color:#5e626b; text-transform:uppercase; padding: 0px 14px 4px 0; font-family: 'Crete Round', serif; }
+.heading1 .maintext { font-size:28px; color:#5e626b; text-transform:uppercase; padding: 0px 14px 4px 0; font-family: 'Roboto', sans-serif; }
 h1, h2, h3, h4, h5, h6 { line-height:normal }
 h2 { font-size:24px }
 .textright { text-align:right }
@@ -22,7 +22,7 @@ h2 { font-size:24px }
 .mr10 { margin-right:10px }
 .mb20 { margin-bottom:20px }
 .mb40 { margin-bottom:40px }
-.error404 { font-size:60px; text-align:center; font-family: 'Crete Round', serif; color:#F54F4D }
+.error404 { font-size:60px; text-align:center; font-family: 'Roboto', sans-serif; color:#F54F4D }
 .centeralign { text-align:center }
 .margin-none { margin:0px }
 .clear { clear:both }

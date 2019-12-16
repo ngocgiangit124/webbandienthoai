@@ -2,26 +2,25 @@
   <section class="footersocial">
     <div class="container">
       <div class="row">
-        <div class="col-lg-3 aboutus col-sm-6">
+        <div class="col-lg-4 aboutus col-sm-6">
           <h2>Về chúng tôi </h2>
-          <p>Về cửa hàng<br>
-            <br>
-            Sitemap</p>
+          <p>Cửa hàng uy tín với nhiều chính sách ưu đãi và rất nhiều trương trình khuyến mại.<br>
+          </p>
         </div>
-        <div class="col-lg-3 contact col-sm-6">
+        <div class="col-lg-4 contact col-sm-6">
           <h2>Liên hệ vơi chúng tôi </h2>
           <ul>
             <li class="phone"> +84999999999</li>
-            <li class="mobile"> +84999999999, +84999999999</li>
-            <li class="email"> !!!!!!!@gmail.com</li>
+            <li class="mobile"> +84999999999</li>
+            <li class="email"> pashop@gmail.com</li>
           </ul>
         </div>
-        <div class="col-lg-3 twitter col-sm-6">
-          <h2>Twitter </h2>
-          <div id="twitter">
-          </div>
-        </div>
-        <div class="col-lg-3 facebook col-sm-6">
+        {{--<div class="col-lg-3 twitter col-sm-6">--}}
+          {{--<h2>Twitter </h2>--}}
+          {{--<div id="twitter">--}}
+          {{--</div>--}}
+        {{--</div>--}}
+        <div class="col-lg-4 facebook col-sm-6">
           <h2>Facebook </h2>
          <div id="fb-root"></div>
 
@@ -33,14 +32,13 @@
     <div class="container">
       <div class="info">
         <ul>
-          <li><a href="#">Privacy Policy</a>
+          <li><a href="#">Chính sách bảo mật</a>
           </li>
-          <li><a href="#">Terms &amp; Conditions</a>
+          <li><a href="#">Điều khoản và điều kiện</a>
           </li>
-          <li><a href="#">Affiliates</a>
+          <li><a href="#">Chi nhánh</a>
           </li>
-          <li><a href="#">Newsletter</a>
-          </li>
+
         </ul>
       </div>
       <div id="footersocial">
@@ -58,7 +56,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6"> All images are copyright to their owners. </div>
-        <div class="col-lg-6 textright"> ShopST @ 2017 </div>
+        <div class="col-lg-6 textright"> FAShop @ 2019 </div>
       </div>
     </div>
   </section>

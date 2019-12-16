@@ -126,8 +126,8 @@
 
           </div>
           <div class="col-lg-4 pull-right">
-            <input type="submit" class="btn btn-orange pull-right" value="CheckOut">
-            <a href="{!! url('index') !!}"><input type="" value="Continue Shopping" class="btn btn-orange pull-right mr10"></a>
+            <input type="submit" class="btn btn-orange pull-right" value="Thanh toán">
+            <a href="{!! url('index') !!}"><input type="" value="Tiếp tục mua hàng" class="btn btn-orange pull-right mr10"></a>
           </div>  
         </form>
       </div>        

@@ -46,6 +46,10 @@
             <label>Price - (Giá)*</label>
             <input class="form-control" type="number" required name="txtPrice" placeholder="Please Enter Price" value="{!! old('txtPrice',isset($product) ? $product['price'] : null) !!}" />
         </div>
+    <div class="form-group">
+        <label>Quantity - (Số lượng)*</label>
+        <input class="form-control" name="txtQuantity" type="number" placeholder="" value="{!! old('txtQuantity',isset($product) ? $product['quantity'] : null) !!}" />
+    </div>
         <div class="form-group">
             <label>Price New - (Giá mới)*</label>
             <input class="form-control"  name="txtPriceNew" placeholder="Please Enter Price" value="{!! old('txtPriceNew',isset($product) ? $product['price_new'] : null) !!}" />
@@ -125,7 +129,7 @@
         </div>
         <div class="form-group">
             <label>Product Description</label>
-            <textarea class="form-control required rows="3" name="txtDescription" >{!! old('txtDescription',isset($product) ? $product['description'] : null) !!}</textarea>
+            <textarea class="form-control required" rows="3" name="txtDescription" >{!! old('txtDescription',isset($product) ? $product['description'] : null) !!}</textarea>
             <script type="text/javascript">CKEDITOR.replace("txtDescription")</script>
         </div>
         <button type="submit" class="btn btn-default">Product Edit</button>

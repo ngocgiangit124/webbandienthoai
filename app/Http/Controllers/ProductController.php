@@ -30,6 +30,7 @@ class ProductController extends Controller
     	$product->name = $product_request->txtName;
     	$product->alias = changeTitle($product_request->txtName);
     	$product->price = $product_request->txtPrice;
+        $product->quantity = $product_request->txtQuantity;
     	$product->price_new = 0;
     	$product->status = 1;
     	$product->intro = $product_request->txtIntro;
@@ -122,6 +123,7 @@ class ProductController extends Controller
         $product->name = Request::input('txtName');
         $product->alias = changeTitle(Request::input('txtName'));
         $product->price = Request::input('txtPrice');
+        $product->quantity = Request::input('txtQuantity');
         $product->price_new = Request::input('txtPriceNew');
         $product->status = Request::input('status');
         $product->intro = Request::input('txtIntro');

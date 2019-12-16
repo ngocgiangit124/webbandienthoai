@@ -6,7 +6,7 @@
                 $menu_level_1 = DB::table('categories')->where('parent_id',0)->get();
             ?>
             @foreach($menu_level_1 as $item_level_1)
-            <li><a class=""  href="{!! URL('product-cate-parent',[$item_level_1->id,$item_level_1->alias]) !!}">{!! $item_level_1->name !!}</a>
+            <li><a class=""  href="{!! URL('product-cate-parent',[$item_level_1->id,$item_level_1->alias]) !!}"><i><img style="height: 22px; margin-right: 3px" src="{!! asset('resources/upload/'.$item_level_1->icon) !!}" alt=""></i>{!! $item_level_1->name !!}</a>
                 <div>
                     <ul>
                         <?php

@@ -38,8 +38,8 @@
             <td class="total">
               <a href="javascript:void(0)" class="updatecart" id="{!! $item->rowId !!}"><img class="tooltip-test" data-original-title="Update" src="{!! url('public/user/img/update.png') !!}"></a>
               <a href="{!! url('detete-cart',['id'=>$item->rowId]) !!}"><img class="tooltip-test" data-original-title="Remove"  src="{!! url('public/user/img/remove.png') !!}" alt=""></a></td>
-            <td class="price">${!! $item->price !!}</td>
-            <td class="total">${!! $item->price*$item->qty !!}</td>    
+            <td class="price">{!! number_format($item->price) !!} VNĐ</td>
+            <td class="total">{!! number_format($item->price*$item->qty) !!} VNĐ</td>
           </tr> 
           @endforeach  
          <!--  </form>  -->
@@ -63,14 +63,14 @@
                 <td><span class="bold totalamout">{!! Cart::total() !!} VNĐ</span></td>
               </tr>
             </table>
-            <a href="{!! url('check-out') !!}"><input type="submit" value="CheckOut" class="btn btn-orange pull-right"></a>
-            <a href="{!! url('index') !!}"><input type="submit" value="Continue Shopping" class="btn btn-orange pull-right mr10"></a>
+            <a href="{!! url('check-out') !!}"><input type="submit" value="Thanh toán" class="btn btn-orange pull-right"></a>
+            <a href="{!! url('index') !!}"><input type="submit" value="Tiếp tục mua hàng" class="btn btn-orange pull-right mr10"></a>
           </div>
         </div>
         </div>
         @else
           <h2>Hiện tại không có sản phẩm nào trong giỏ hàng của bạn...</h2>
-          <a href="{!! url('index') !!}"><input type="submit" value="Continue Shopping" class="btn btn-orange pull-right mr10"></a>
+          <a href="{!! url('index') !!}"><input type="submit" value="Tiếp tục mua hàng" class="btn btn-orange pull-right mr10"></a>
         @endif
     </div>
   </section>

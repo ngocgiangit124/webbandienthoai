@@ -8,11 +8,13 @@
 <meta name="author" content="">
 <meta http-equiv="X-UA-Compatible" content="IE=100" >
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic,600,600italic' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
+{{--<link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>--}}
+{{--<link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>--}}
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap&subset=vietnamese" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Crete+Round:400,400i&display=swap&subset=latin-ext" rel="stylesheet">
 <link href="{!! url('public/user/css/bootstrap.css') !!}" rel="stylesheet">
 <link href="{!! url('public/user/css/bootstrap-responsive.css') !!}" rel="stylesheet">
-<link href="{!! url('public/user/css/style.css') !!}" rel="stylesheet">
+<link href="{!! url('public/user/css/style.css?v=1.00') !!}" rel="stylesheet">
 <link href="{!! url('public/user/css/flexslider.css') !!}" type="text/css" media="screen" rel="stylesheet">
 <link href="{!! url('public/user/css/jquery.fancybox.css') !!}" rel="stylesheet">
 <link href="{!! url('public/user/css/cloud-zoom.css') !!}" rel="stylesheet">
@@ -27,6 +29,19 @@
     <![endif]-->
 <!-- fav -->
 <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <style>
+        ul.bestseller li {
+            height: 120px;
+            padding: 10px 8px 10px 8px;
+        }
+        ul.bestseller li img {
+            height: 100%;
+            width: auto;
+        }
+        ul.bestseller li a.productname {
+            font-weight: 700;
+        }
+    </style>
 </head>
 <body>
 <!-- Header Start -->
