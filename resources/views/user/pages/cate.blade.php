@@ -97,11 +97,11 @@
                   {{--&nbsp;&nbsp;--}}
                   Show:
                   <select class="xxx">
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                    <option value="20">20</option>
-                    <option value="25">25</option>
-                    <option value="30">30</option>
+                    <option value="10" {{$per_page == 10? "selected=selected":""}}>10</option>
+                    <option value="15" {{$per_page == 15? "selected=selected":""}}>15</option>
+                    <option value="20" {{$per_page == 20? "selected=selected":""}}>20</option>
+                    <option value="25" {{$per_page == 25? "selected=selected":""}}>25</option>
+                    <option value="30" {{$per_page == 30? "selected=selected":""}}>30</option>
                   </select>
                 </form>
                 <div class="btn-group pull-right">
@@ -134,10 +134,10 @@
                         @endif
                         <div class="price">
                           @if($item_product_cate->price_new == 0)
-                            <div class="pricenew">${!! $item_product_cate->price !!}</div>
+                            <div class="pricenew">{!! number_format($item_product_cate->price) !!} VNĐ</div>
                           @else
-                            <div class="pricenew">${!! $item_product_cate->price_new !!}</div>
-                            <div class="priceold">${!! $item_product_cate->price !!}</div>
+                            <div class="pricenew">{!! number_format($item_product_cate->price_new) !!} VNĐ</div>
+                            <div class="priceold">{!! number_format($item_product_cate->price) !!} VNĐ</div>
                           @endif
                         </div>
                       </div>
@@ -167,10 +167,10 @@
                             @endif
                             <div class="price">
                               @if($item_product_cate->price_new == 0)
-                                <div class="pricenew">${!! $item_product_cate->price !!}</div>
+                                <div class="pricenew">{!! number_format($item_product_cate->price) !!} VNĐ</div>
                               @else
-                                <div class="pricenew">${!! $item_product_cate->price_new !!}</div>
-                                <div class="priceold">${!! $item_product_cate->price !!}</div>
+                                <div class="pricenew">{!! number_format($item_product_cate->price_new) !!} VNĐ</div>
+                                <div class="priceold">{!! number_format($item_product_cate->price) !!} VNĐ</div>
                               @endif
                             </div>
                           </div>

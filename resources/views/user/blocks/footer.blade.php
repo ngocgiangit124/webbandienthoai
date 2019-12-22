@@ -2,16 +2,16 @@
   <section class="footersocial">
     <div class="container">
       <div class="row">
-        <div class="col-lg-4 aboutus col-sm-6">
+        <div class="col-lg-6 aboutus col-sm-6">
           <h2>Về chúng tôi </h2>
           <p>Cửa hàng uy tín với nhiều chính sách ưu đãi và rất nhiều trương trình khuyến mại.<br>
           </p>
         </div>
-        <div class="col-lg-4 contact col-sm-6">
+        <div class="col-lg-6 contact col-sm-6">
           <h2>Liên hệ vơi chúng tôi </h2>
           <ul>
             <li class="phone"> +84999999999</li>
-            <li class="mobile"> +84999999999</li>
+            <li class="mobile">  Số 51 Ngõ 52 Đường Tô Ngọc Vân ,Quận Ba Đình ,TP Hà nội</li>
             <li class="email"> pashop@gmail.com</li>
           </ul>
         </div>
@@ -20,9 +20,9 @@
           {{--<div id="twitter">--}}
           {{--</div>--}}
         {{--</div>--}}
-        <div class="col-lg-4 facebook col-sm-6">
-          <h2>Facebook </h2>
-         <div id="fb-root"></div>
+        {{--<div class="col-lg-4 facebook col-sm-6">--}}
+          {{--<h2>Facebook </h2>--}}
+         {{--<div id="fb-root"></div>--}}
 
         </div>
       </div>

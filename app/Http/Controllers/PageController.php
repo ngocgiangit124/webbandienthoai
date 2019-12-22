@@ -69,7 +69,7 @@ class PageController extends Controller
                                 ->groupBy('product_id')
                                 ->take(3)
                                 ->get();
-        return view('user.pages.cate',compact('product_cate','product_related','menu_cate','product_bestseller'));
+        return view('user.pages.cate',compact('product_cate','product_related','menu_cate','product_bestseller'),['per_page'=>$per_page]);
     }
     public function productdetail($id){
     	$product_detail = DB::table('products')->where('id',$id)->first();
