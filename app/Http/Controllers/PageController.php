@@ -16,7 +16,7 @@ use App\Contact;
 use App\Product;
 use Cart;
 use Alert;
-use Illuminate\Http\Request;
+use Request;
 class PageController extends Controller
 {
     public function getIndex(){
@@ -48,13 +48,15 @@ class PageController extends Controller
                                 ->groupBy('product_id')
                                 ->take(3)
                                 ->get();
+
 //        $banners = Banner::where('status',1)->get();
 //        $banners = $banners->getArrayInfo();
 //        $this->data['banners'] = $banners;
         return view('user.pages.cate',compact('product_cate','product_related','menu_cate','product_bestseller'));
     }
     public function productcate($id){
-        $product_cate = DB::table('products')->select('id','name','image','price','price_new','alias','status','cate_id','intro')->where('cate_id',$id)->paginate(3);
+        $per_page = Request::input('per_page')?Request::input('per_page'):9;
+        $product_cate = DB::table('products')->select('id','name','image','price','price_new','alias','status','cate_id','intro')->where('cate_id',$id)->paginate($per_page);
         $product_related = DB::table('products')->join('categories', 'categories.id', '=', 'products.cate_id')
                             ->select('products.*', 'categories.id as cate_id', 'categories.name as cate_name')
                             ->orderBy('id','DESC')->take(4)->get();

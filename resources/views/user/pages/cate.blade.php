@@ -86,22 +86,22 @@
              <!-- Sorting-->
               <div class="sorting well">
                 <form class=" form-inline pull-left">
-                  Sort By :
-                  <select>
-                    <option>Mặc định</option>
-                    <option>Tên</option>
-                    <option>Giá</option>
-                    <option>Đánh giá </option>
-                    <option>Màu</option>
-                  </select>
-                  &nbsp;&nbsp;
+                  {{--Sort By :--}}
+                  {{--<select>--}}
+                    {{--<option>Mặc định</option>--}}
+                    {{--<option>Tên</option>--}}
+                    {{--<option>Giá</option>--}}
+                    {{--<option>Đánh giá </option>--}}
+                    {{--<option>Màu</option>--}}
+                  {{--</select>--}}
+                  {{--&nbsp;&nbsp;--}}
                   Show:
-                  <select>
-                    <option>10</option>
-                    <option>15</option>
-                    <option>20</option>
-                    <option>25</option>
-                    <option>30</option>
+                  <select class="xxx">
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
                   </select>
                 </form>
                 <div class="btn-group pull-right">
@@ -206,5 +206,20 @@
     </div>
   </div>
 </section>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <?php $a = str_replace('/?','?',$product_cate->url(1));
+            $b = explode('?',$product_cate->url(1));
+            $url = $b[0];
+        ?>
+<script type="text/javascript">
+    $(document).ready(function () {
+       $('.xxx').change(function () {
+          var per = $('.xxx').val();
+          var herf ='{{$url}}';
+          console.log('{{$url}}');
+           window.location.assign(herf+'?per_page='+per);
+       });
+    });
+</script>
 
 @endsection
