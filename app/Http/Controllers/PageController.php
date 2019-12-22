@@ -29,11 +29,12 @@ class PageController extends Controller
         return view('user.pages.home',compact('product','banners'));
     }
     public function productcateparent($id){
+        $per_page = Request::input('per_page')?Request::input('per_page'):9;
     	$product_cate = DB::table('products')->join('categories', 'categories.id', '=', 'products.cate_id')
                         ->select('products.*', 'categories.id as cate_id', 'categories.parent_id as parent_id')
                         ->where('parent_id', '=', $id)
                         ->orderBy('products.id','desc')
-                        ->paginate(3);
+                        ->paginate($per_page);
         if(isset($product_cate[0]->cate_id)){
             $cate = DB::table('categories')->select('parent_id')->where('id',$product_cate[0]->cate_id)->first();
             $menu_cate = DB::table('categories')->select('id','name','alias')->where('parent_id',$cate->parent_id)->get();
@@ -52,9 +53,10 @@ class PageController extends Controller
 //        $banners = Banner::where('status',1)->get();
 //        $banners = $banners->getArrayInfo();
 //        $this->data['banners'] = $banners;
-        return view('user.pages.cate',compact('product_cate','product_related','menu_cate','product_bestseller'));
+        return view('user.pages.cate',compact('product_cate','product_related','menu_cate','product_bestseller'),['per_page'=>$per_page]);
     }
     public function productcate($id){
+
         $per_page = Request::input('per_page')?Request::input('per_page'):9;
         $product_cate = DB::table('products')->select('id','name','image','price','price_new','alias','status','cate_id','intro')->where('cate_id',$id)->paginate($per_page);
         $product_related = DB::table('products')->join('categories', 'categories.id', '=', 'products.cate_id')
