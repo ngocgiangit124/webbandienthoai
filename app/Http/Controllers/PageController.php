@@ -94,6 +94,8 @@ class PageController extends Controller
         if(isset($product_cate[0]->cate_id)){
             $cate = DB::table('categories')->select('parent_id')->where('id',$product_cate[0]->cate_id)->first();
             $menu_cate = DB::table('categories')->select('id','name','alias')->where('parent_id',$cate->parent_id)->get();
+        } else {
+            $menu_cate = collect([]);
         }
         $product_bestseller = DB::table('order_details')
                                 ->select('product_id', DB::raw('count(product_id) as seller'))
