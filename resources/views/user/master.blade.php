@@ -41,6 +41,68 @@
         ul.bestseller li a.productname {
             font-weight: 700;
         }
+        #categorymenu {
+            margin: 20px 0 20px 0;
+        }
+        ul.categorymenu>li>a {
+            font-weight: 700;
+        }
+
+        .fs-main {
+            padding: 100px 0 15px 0;
+            background: #f3f3f3;
+        }
+        .f-wrap {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .fs-ctelist {
+            /*padding: 25px 0 30px;*/
+            background: #fff;
+        }
+        .fs-ctetit {
+            text-align: center;
+            font-size: 16px;
+            color: #4a4a4a;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+        .fs-cteul {
+            display: table;
+            width: 100%;
+        }
+        ul {
+            list-style: none;
+        }
+        .fs-cteul li {
+            display: table-cell;
+            text-align: center;
+            width: 13.66%;
+        }
+        .fs-cteul li a {
+            display: inline-block;
+        }
+        .fs-cteul li a span {
+            display: inline-block;
+            text-align: center;
+            overflow: hidden;
+            margin-bottom: 15px;
+            padding: 10px;
+            width: 77px;
+            height: 77px;
+            background: #fff;
+            border: solid 1px #dcdcdc;
+            -webkit-border-radius: 100%;
+            -moz-border-radius: 100%;
+            border-radius: 100%;
+        }
+        .fs-cteul li a p {
+            font-size: 14px;
+            text-align: center;
+            color: #4a4a4a;
+        }
     </style>
 </head>
 <body>

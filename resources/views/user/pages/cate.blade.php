@@ -3,7 +3,6 @@
 @section('description','Shop Fashion ST')
 
 
-
 <section id="product">
   <div class="container">
    <!--  breadcrumb -->  
@@ -14,7 +13,57 @@
       </li>
       <li class="active">Danh sách</li>
     </ul>
-    <div class="row">        
+
+          <div class="f-wrap">
+              <div class="fs-ctelist">
+                  <h1 class="fs-ctetit">Lựa chọn giá sản phẩm</h1>
+                  <ul class="fs-cteul">
+                      <li>
+                          <a href="{{URL::current()}}?price2=1000000" onclick="ga('send', 'event', 'Category Pages (PC)', 'Click Top Price Icon', 'Dưới 1 triệu');" title="Dưới 1 triệu" class="filter-price">
+                              <span><img class="lazy" src="https://images.fpt.shop/unsafe/fit-in/55x55/filters:quality(90):fill(white)/cdn.fptshop.com.vn/Uploads/Originals/2017/4/25/636287267075950000_200.jpg" data-original="https://images.fpt.shop/unsafe/fit-in/55x55/filters:quality(90):fill(white)/cdn.fptshop.com.vn/Uploads/Originals/2017/4/25/636287267075950000_200.jpg" alt="Dưới 1 triệu" style="display: inline;"></span>
+                              <p>Dưới 1 triệu</p>
+                          </a>
+                      </li>
+                      <li>
+                          <a href="{{URL::current()}}?price1=1000000&price2=3000000" onclick="ga('send', 'event', 'Category Pages (PC)', 'Click Top Price Icon', 'Từ 1 - 3 triệu');" title="Từ 1 - 3 triệu" class="filter-price">
+                              <span><img class="lazy" src="https://images.fpt.shop/unsafe/fit-in/55x55/filters:quality(90):fill(white)/cdn.fptshop.com.vn/Uploads/Originals/2017/4/25/636287267646710000_200.jpg" data-original="https://images.fpt.shop/unsafe/fit-in/55x55/filters:quality(90):fill(white)/cdn.fptshop.com.vn/Uploads/Originals/2017/4/25/636287267646710000_200.jpg" alt="Từ 1 - 3 triệu" style="display: inline;"></span>
+                              <p>Từ 1 - 3 triệu</p>
+                          </a>
+                      </li>
+                      <li>
+                          <a href="{{URL::current()}}?price1=3000000&price2=6000000" onclick="ga('send', 'event', 'Category Pages (PC)', 'Click Top Price Icon', 'Từ 3 - 6 triệu');" title="Từ 3 - 6 triệu" class="filter-price">
+                              <span><img class="lazy" src="https://images.fpt.shop/unsafe/fit-in/55x55/filters:quality(90):fill(white)/cdn.fptshop.com.vn/Uploads/Originals/2017/4/25/636287267954174000_200.jpg" data-original="https://images.fpt.shop/unsafe/fit-in/55x55/filters:quality(90):fill(white)/cdn.fptshop.com.vn/Uploads/Originals/2017/4/25/636287267954174000_200.jpg" alt="Từ 3 - 6 triệu" style="display: inline;"></span>
+                              <p>Từ 3 - 6 triệu</p>
+                          </a>
+                      </li>
+                      <li>
+                          <a href="{{URL::current()}}?price1=6000000&price2=10000000" onclick="ga('send', 'event', 'Category Pages (PC)', 'Click Top Price Icon', 'Từ 6 - 10 triệu');" title="Từ 6 - 10 triệu" class="filter-price">
+                              <span><img class="lazy" src="https://images.fpt.shop/unsafe/fit-in/55x55/filters:quality(90):fill(white)/cdn.fptshop.com.vn/Uploads/Originals/2017/4/25/636287268647066000_200.jpg" data-original="https://images.fpt.shop/unsafe/fit-in/55x55/filters:quality(90):fill(white)/cdn.fptshop.com.vn/Uploads/Originals/2017/4/25/636287268647066000_200.jpg" alt="Từ 6 - 10 triệu" style="display: inline;"></span>
+                              <p>Từ 6 - 10 triệu</p>
+                          </a>
+                      </li>
+                      <li>
+                          <a href="{{URL::current()}}?price1=10000000&price2=1500000" onclick="ga('send', 'event', 'Category Pages (PC)', 'Click Top Price Icon', 'Từ 10 - 15 triệu');" title="Từ 10 - 15 triệu" class="filter-price">
+                              <span><img class="lazy" src="https://images.fpt.shop/unsafe/fit-in/55x55/filters:quality(90):fill(white)/cdn.fptshop.com.vn/Uploads/Originals/2017/5/15/636304622649228315_10-15.jpg" data-original="https://images.fpt.shop/unsafe/fit-in/55x55/filters:quality(90):fill(white)/cdn.fptshop.com.vn/Uploads/Originals/2017/5/15/636304622649228315_10-15.jpg" alt="Từ 10 - 15 triệu" style="display: inline;"></span>
+                              <p>Từ 10 - 15 triệu</p>
+                          </a>
+                      </li>
+                      <li>
+                          <a href="{{URL::current()}}?price1=15000000" onclick="ga('send', 'event', 'Category Pages (PC)', 'Click Top Price Icon', 'Trên 15 triệu');" title="Trên 15 triệu" class="filter-price">
+                              <span><img class="lazy" src="https://images.fpt.shop/unsafe/fit-in/55x55/filters:quality(90):fill(white)/cdn.fptshop.com.vn/Uploads/Originals/2017/4/25/636287269146660000_200.jpg" data-original="https://images.fpt.shop/unsafe/fit-in/55x55/filters:quality(90):fill(white)/cdn.fptshop.com.vn/Uploads/Originals/2017/4/25/636287269146660000_200.jpg" alt="Trên 15 triệu" style="display: inline;"></span>
+                              <p>Trên 15 triệu</p>
+                          </a>
+                      </li>
+                      {{--<li>--}}
+                          {{--<a href="/dien-thoai?sort=ban-chay-nhat" title="Điện thoại">--}}
+                              {{--<span><i class="icdt ic-ctli"></i></span>--}}
+                              {{--<p>Xem tất cả</p>--}}
+                          {{--</a>--}}
+                      {{--</li>--}}
+                  </ul>
+              </div>
+          </div>
+    <div class="row">
       <!-- Sidebar Start-->
       <aside class="col-lg-3">
        <!-- Category-->  

@@ -16,6 +16,7 @@ use App\Contact;
 use App\Product;
 use Cart;
 use Alert;
+use Illuminate\Support\Facades\URL;
 use Request;
 class PageController extends Controller
 {
@@ -30,9 +31,22 @@ class PageController extends Controller
     }
     public function productcateparent($id){
         $per_page = Request::input('per_page')?Request::input('per_page'):9;
+        $price1 = Request::input('price1')?Request::input('price1'):0;
+        $price2 = Request::input('price2')?Request::input('price2'):0;
     	$product_cate = DB::table('products')->join('categories', 'categories.id', '=', 'products.cate_id')
                         ->select('products.*', 'categories.id as cate_id', 'categories.parent_id as parent_id')
                         ->where('parent_id', '=', $id)
+                        ->where(function ($q) use ($price1,$price2) {
+                            if($price1>0 && $price2>0) {
+                                return $q->whereBetween('products.price',[$price1,$price2]);
+                            }
+                            if($price1==0 && $price2>0) {
+                                return $q->where('products.price','<=',$price2);
+                            }
+                            if($price1>0 && $price2==0) {
+                                return $q->where('products.price','>=',$price2);
+                            }
+                        })
                         ->orderBy('products.id','desc')
                         ->paginate($per_page);
         if(isset($product_cate[0]->cate_id)){
@@ -58,7 +72,22 @@ class PageController extends Controller
     public function productcate($id){
 
         $per_page = Request::input('per_page')?Request::input('per_page'):9;
-        $product_cate = DB::table('products')->select('id','name','image','price','price_new','alias','status','cate_id','intro')->where('cate_id',$id)->paginate($per_page);
+        $price1 = Request::input('price1')?Request::input('price1'):0;
+        $price2 = Request::input('price2')?Request::input('price2'):0;
+        $product_cate = DB::table('products')->select('id','name','image','price','price_new','alias','status','cate_id','intro')
+            ->where('cate_id',$id)
+            ->where(function ($q) use ($price1,$price2) {
+                if($price1>0 && $price2>0) {
+                    return $q->whereBetween('price',[$price1,$price2]);
+                }
+                if($price1==0 && $price2>0) {
+                    return $q->where('price','<=',$price2);
+                }
+                if($price1>0 && $price2==0) {
+                    return $q->where('price','>=',$price2);
+                }
+            })
+            ->paginate($per_page);
         $product_related = DB::table('products')->join('categories', 'categories.id', '=', 'products.cate_id')
                             ->select('products.*', 'categories.id as cate_id', 'categories.name as cate_name')
                             ->orderBy('id','DESC')->take(4)->get();
@@ -143,8 +172,9 @@ class PageController extends Controller
     }
 
     public function postSearch(Request $request){
-        $key_search  = $request->get('key_search');
-        $product_search = Product::where('name','like',"%$key_search%")->take(9)->get();
+//        dd($request);
+        $key_search  = Request::input('key_search');
+        $product_search = Product::where('name','like',"%$key_search%")->orWhere('price','=',$key_search)->take(9)->get();
         $product_related = DB::table('products')->join('categories', 'categories.id', '=', 'products.cate_id')
                             ->select('products.*', 'categories.id as cate_id', 'categories.name as cate_name')
                             ->orderBy('id','DESC')->take(4)->get();
