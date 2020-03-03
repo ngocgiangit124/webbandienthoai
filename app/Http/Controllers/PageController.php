@@ -104,6 +104,43 @@ class PageController extends Controller
                                 ->get();
         return view('user.pages.cate',compact('product_cate','product_related','menu_cate','product_bestseller'),['per_page'=>$per_page]);
     }
+    public function productsale(){
+        $per_page = Request::input('per_page')?Request::input('per_page'):9;
+        $price1 = Request::input('price1')?Request::input('price1'):0;
+        $price2 = Request::input('price2')?Request::input('price2'):0;
+        $product_cate = DB::table('products')->join('categories', 'categories.id', '=', 'products.cate_id')
+            ->select('products.*', 'categories.id as cate_id', 'categories.parent_id as parent_id')
+            ->where('products.price_new','>',0)
+            ->where(function ($q) use ($price1,$price2) {
+                if($price1>0 && $price2>0) {
+                    return $q->whereBetween('products.price',[$price1,$price2]);
+                }
+                if($price1==0 && $price2>0) {
+                    return $q->where('products.price','<=',$price2);
+                }
+                if($price1>0 && $price2==0) {
+                    return $q->where('products.price','>=',$price2);
+                }
+            })
+            ->orderBy('products.id','desc')
+            ->paginate($per_page);
+        if(isset($product_cate[0]->cate_id)){
+            $cate = DB::table('categories')->select('parent_id')->where('id',$product_cate[0]->cate_id)->first();
+            $menu_cate = DB::table('categories')->select('id','name','alias')->where('parent_id',$cate->parent_id)->get();
+        } else {
+            $menu_cate = collect([]);
+        }
+        $product_related = DB::table('products')->join('categories', 'categories.id', '=', 'products.cate_id')
+            ->select('products.*', 'categories.id as cate_id', 'categories.name as cate_name')
+            ->orderBy('id','DESC')->take(4)->get();
+        $product_bestseller = DB::table('order_details')
+            ->select('product_id', DB::raw('count(product_id) as seller'))
+            ->groupBy('product_id')
+            ->take(3)
+            ->get();
+
+        return view('user.pages.cate',compact('product_cate','product_related','menu_cate','product_bestseller'),['per_page'=>$per_page]);
+    }
     public function productdetail($id){
     	$product_detail = DB::table('products')->where('id',$id)->first();
         $image = DB::table('product_images')->select('id','image')->where('product_id',$product_detail->id)->get();

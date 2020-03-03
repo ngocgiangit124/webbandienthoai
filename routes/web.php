@@ -14,8 +14,8 @@
 Route::get('/', function () {
     return redirect('index');
 });
-
-Route::get('/index', ['as'=>'home-page','uses'=>'PageController@getIndex']);
+Route::post('/ajax/uploadImageSpec','NewsController@upload');
+Route::get('/index', ['as'=>'home-page','uses'=>'PageController@upload']);
 
 Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function() {
     Route::get('/','BillController@getList');
@@ -45,6 +45,16 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function() {
 		Route::get('/delimg/{id}','ProductController@getDelImg');
 		Route::get('delsize/{id}',['as'=>'admin.product.getDelSize','uses'=>'ProductController@getDelSize']);
 	});
+    Route::group(['prefix'=>'news'],function() {
+        Route::get('list',['as'=>'admin.news.list','uses'=>'NewsController@getList']);
+        Route::get('add',['as'=>'admin.news.getAdd','uses'=>'NewsController@getAdd']);
+        Route::post('add',['as'=>'admin.news.postAdd','uses'=>'NewsController@postAdd']);
+        Route::get('delete/{id}',['as'=>'admin.news.getDelete','uses'=>'NewsController@getDelete']);
+        Route::get('edit/{id}',['as'=>'admin.news.getEdit','uses'=>'NewsController@getEdit']);
+        Route::post('edit/{id}',['as'=>'admin.news.postEdit','uses'=>'NewsController@postEdit']);
+        Route::get('/delimg/{id}','ProductController@getDelImg');
+        Route::get('delsize/{id}',['as'=>'admin.news.getDelSize','uses'=>'NewsController@getDelSize']);
+    });
 	Route::group(['prefix'=>'user'],function() {
 		Route::get('list',['as'=>'admin.user.list','uses'=>'UserController@getList']);
 		Route::get('add',['as'=>'admin.user.getAdd','uses'=>'UserController@getAdd']);
@@ -69,6 +79,8 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function() {
 
 Route::get('product-cate/{id}/{alias}',['as'=>'productcate','uses'=>'PageController@productcate']);
 Route::get('product-cate-parent/{id}/{alias}',['as'=>'productcateparent','uses'=>'PageController@productcateparent']);
+Route::get('product-sale',['as'=>'productsale','uses'=>'PageController@productsale']);
+
 
 
 Route::get('product-detail/{id}/{alias}',['as'=>'productdetail','uses'=>'PageController@productdetail']);

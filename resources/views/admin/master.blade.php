@@ -9,7 +9,9 @@
     <title>Admin Page</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="{{ url('public/admin/bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    @if(Request::segment(2) != 'news')
+        <link href="{{ url('public/admin/bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    @endif
 
     <!-- MetisMenu CSS -->
     <link href="{{ url('public/admin/bower_components/metisMenu/dist/metisMenu.min.css') }}" rel="stylesheet">
@@ -197,8 +199,11 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="{{ url('public/admin/bower_components/jquery/dist/jquery.min.js') }}"></script>
+    @if(Request::segment(2) != 'news')
+        <script src="{{ url('public/admin/bower_components/jquery/dist/jquery.min.js') }}"></script>
+    @else
 
+    @endif
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ url('public/admin/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
