@@ -15,7 +15,7 @@ Route::get('/', function () {
     return redirect('index');
 });
 Route::post('/ajax/uploadImageSpec','NewsController@upload');
-Route::get('/index', ['as'=>'home-page','uses'=>'PageController@upload']);
+Route::get('/index', ['as'=>'home-page','uses'=>'PageController@getIndex']);
 
 Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function() {
     Route::get('/','BillController@getList');
